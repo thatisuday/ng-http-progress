@@ -1,0 +1,32 @@
+{
+  "name": "angular-http-progress",
+  "version": "1.0.2",
+  "description": "$http interceptor spinner for angular.js ",
+  "main" : "dist/angular-http-progress.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thatisuday/angular-http-progress.git"
+  },
+  "author": "Uday Hiwarale <uhiwarale@gmail.com> (https://github.com/thatisuday)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thatisuday/angular-http-progress/issues"
+  },
+  "homepage": "https://github.com/thatisuday/angular-http-progress#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-gzip": "^1.4.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0"
+  },
+  "dependencies": {}
+}

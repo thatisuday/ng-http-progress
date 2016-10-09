@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="demo">
+	<head>
+		<title>Angular Http Progress</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+		<!-- Local Dependencies -->
+		<!-- <script src="../bower_components/angular/angular.js"></script> -->
+
+		<!-- Dependencies -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+
+		<!-- Module files-->
+		<script src="../dist/angular-http-progress.min.js"></script>
+		<link href="../dist/angular-http-progress.min.css" rel="stylesheet"/>
+
+		<style>
+			body{
+				background-color: #fff;
+				font-family: sans-serif;
+			}
+		</style>
+	</head>
+	<body ng-controller="main">
+		<h1>Angular $http Progress Bar</h1>
+		<button ng-click="start()">Start Progress</button>
+		<button ng-click="pause()">Pause Progress</button>
+		<button ng-click="resume()">Resume Progress</button>
+		<button ng-click="stop()">Stop Progress</button>
+		<button ng-click="restart()">Restart Progress</button>
+
+		<hr/>
+
+		<form ng-submit="sendGetReq()">
+			<input type="url" ng-model="url" placeholder="type url" required="" />
+			<button type="submit">send get request</button>
+		</form>
+
+		<script>
+			angular
+			.module('demo', ['thatisuday.angular-http-progress'])
+			.config(function($httpProgressOpsProvider){
+				$httpProgressOpsProvider.setOps({
+					//background: '#e91e63',
+					autoPauseAt : 75,
+					//http : false
+				});
+			})
+			.controller('main', function($rootScope, $scope, $timeout, $http){
+				$scope.start = function(){
+					$rootScope.$emit('$httpProgressStart');
+				}
+
+				$scope.pause = function(){
+					$rootScope.$emit('$httpProgressPause');
+				}
+
+				$scope.resume = function(){
+					$rootScope.$emit('$httpProgressResume');
+				}
+
+				$scope.stop = function(){
+					$rootScope.$emit('$httpProgressStop');
+				}
+
+				$scope.restart = function(){
+					$rootScope.$emit('$httpProgressRestart');
+				}
+
+				/*******************************************************/
+
+				// test http
+				$scope.url = 'https://api.github.com/users/thatisuday/repos';
+				$scope.sendGetReq = function(){
+					$http.get($scope.url);
+				};
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "angular-http-progress",
+  "description": "$http interceptor spinner for angular.js",
+  "main": [
+    "dist/angular-http-progress.css",
+    "dist/angular-http-progress.js"
+  ],
+  "authors": [
+    "Uday Hiwarale <uhiwarale@gmail.com> (https://github.com/thatisuday)"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/thatisuday/angular-http-progress",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8"
+  }
+}
