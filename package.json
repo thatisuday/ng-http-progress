@@ -1,6 +1,6 @@
 {
   "name": "ng-http-progress",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "$http interceptor spinner for angular.js ",
   "main" : "dist/ng-http-progress.js",
   "scripts": {

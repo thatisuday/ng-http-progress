@@ -12,6 +12,8 @@ You can change the background color and other options in `config` block using `$
 
 In general, whenever your app send one or more `$http` requests, progress bar will show up and progress will start. At each second, progress bar width will increment by `5%` until it reaches `90%`. At `90%` progress, progress bar will pause and stay like that until all ajax requests finishes. When all ajax requests finishes, progress bar will reach `100%` progress and disappear. If all ajax requests finishes before progress reaches `90%`, it will jump to `100%` and disappear. _You can change pause value of `90%` to any number between 0 - 100 in `config` phase_.
 
+It consumes only 2kb (gzipped) and it's very hackable.
+
 ***
 
 ## Install
