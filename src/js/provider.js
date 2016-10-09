@@ -1,6 +1,6 @@
 // provider
 angular
-.module('thatisuday.angular-http-progress')
+.module('thatisuday.ng-http-progress')
 .provider('$httpProgressOps', function(){
 	var defOps = {
 		http 	: true,

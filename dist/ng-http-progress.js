@@ -1,10 +1,10 @@
 // module
-angular.module('thatisuday.angular-http-progress', []);
+angular.module('thatisuday.ng-http-progress', []);
 
 // directive
 angular
-.module('thatisuday.angular-http-progress')
-.directive('angularHttpProgress', ['$rootScope', '$interval', '$timeout', '$http', '$httpProgressOps', function($rootScope, $interval, $timeout, $http, $httpProgressOps){
+.module('thatisuday.ng-http-progress')
+.directive('ngHttpProgress', ['$rootScope', '$interval', '$timeout', '$http', '$httpProgressOps', function($rootScope, $interval, $timeout, $http, $httpProgressOps){
 	return {
 		restrict : 'E',
 		scope : {},
@@ -106,7 +106,7 @@ angular
 
 // provider
 angular
-.module('thatisuday.angular-http-progress')
+.module('thatisuday.ng-http-progress')
 .provider('$httpProgressOps', function(){
 	var defOps = {
 		http 	: true,
@@ -127,10 +127,10 @@ angular
 
 // run
 angular
-.module('thatisuday.angular-http-progress')
+.module('thatisuday.ng-http-progress')
 .run(['$document', function($document){
 	if($document.find('#progress').length == 0){
-		$document.find('body').append('<angular-http-progress></angular-http-progress>');
+		$document.find('body').append('<ng-http-progress></ng-http-progress>');
 	}
 }])
 ;

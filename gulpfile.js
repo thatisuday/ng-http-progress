@@ -18,7 +18,7 @@ var
 gulp.task('buildJS', function(){
 	gulp
 	.src(['./src/js/app.js', './src/js/**/*.js'])
-	.pipe(concat('angular-http-progress.js', {newLine:'\n\n'}))
+	.pipe(concat('ng-http-progress.js', {newLine:'\n\n'}))
 	.pipe(sourcemaps.init())
 	.pipe(gulp.dest('./dist'))
 	.pipe(rename({suffix : '.min'}))
@@ -35,7 +35,7 @@ gulp.task('buildJS', function(){
 gulp.task('buildCSS', function(){
 	gulp
 	.src('./src/sass/**/*.scss')
-	.pipe(concat('angular-http-progress.scss'))
+	.pipe(concat('ng-http-progress.scss'))
 	.pipe(sass().on('error', sass.logError))
 	.pipe(autoprefixer())
 	.pipe(sourcemaps.init())

@@ -1,2 +1,2 @@
 // module
-angular.module('thatisuday.angular-http-progress', []);
+angular.module('thatisuday.ng-http-progress', []);

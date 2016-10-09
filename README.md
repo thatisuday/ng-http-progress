@@ -1,14 +1,14 @@
 # Angular $http Progress Bar
 YouTube like top attached progress bar to show $http requests in progress (automatic)
 
-# angular-http-progress ![bower](https://img.shields.io/bower/v/angular-http-progress.svg?style=flat-square) [![npm downloads](https://img.shields.io/npm/dt/angular-http-progress.svg?style=flat-square)](https://www.npmjs.com/package/angular-http-progress) [![preview](https://img.shields.io/badge/preview-click here-green.svg?style=flat-square)](https://rawgit.com/thatisuday/angular-http-progress/master/demo/main.html)
+![bower](https://img.shields.io/bower/v/angular-http-progress.svg?style=flat-square) [![npm downloads](https://img.shields.io/npm/dt/angular-http-progress.svg?style=flat-square)](https://www.npmjs.com/package/angular-http-progress) [![preview](https://img.shields.io/badge/preview-click here-green.svg?style=flat-square)](https://rawgit.com/thatisuday/angular-http-progress/master/demo/main.html)
 
 ***
 
 # How does it work?
-When you include `thatisuday.angular-http-progress` module to your app's dependencies, you will automatically get progress bar whenever you send ajax requests through `$http` service.
+When you include `thatisuday.ng-http-progress` module to your app's dependencies, you will automatically get progress bar whenever you send ajax requests through `$http` service.
 
-You can change the background color and other options in `config` block using `$httpProgressOpsProvider` provider of `angular-http-progress` module.
+You can change the background color and other options in `config` block using `$httpProgressOpsProvider` provider of `ng-http-progress` module.
 
 In general, whenever your app send one or more `$http` requests, progress bar will show up and progress will start. At each second, progress bar width will increment by `5%` until it reaches `90%`. At `90%` progress, progress bar will pause and stay like that until all ajax requests finishes. When all ajax requests finishes, progress bar will reach `100%` progress and disappear. If all ajax requests finishes before progress reaches `90%`, it will jump to `100%` and disappear. _You can change pause value of `90%` to any number between 0 - 100 in `config` phase_.
 
@@ -18,16 +18,16 @@ In general, whenever your app send one or more `$http` requests, progress bar wi
 
 #### npm
 ```
-bower install angular-http-progress
+bower install ng-http-progress
 ```
 
 #### bower
 
 ```
-npm install angular-http-progress
+npm install ng-http-progress
 ```
 
-> include `angular-http-progress.js` and `angular-http-progress.css` from `dist` directory.
+> include `ng-http-progress.js` and `ng-http-progress.css` from `dist` directory.
 
 
 ***
@@ -36,7 +36,7 @@ npm install angular-http-progress
 
 ```
 angular
-.module('demo', ['thatisuday.angular-http-progress'])
+.module('demo', ['thatisuday.ng-http-progress'])
 .config(function($httpProgressOpsProvider){
 	$httpProgressOpsProvider.setOps({
 		background: '#b91f1f',

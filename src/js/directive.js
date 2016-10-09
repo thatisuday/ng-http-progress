@@ -1,7 +1,7 @@
 // directive
 angular
-.module('thatisuday.angular-http-progress')
-.directive('angularHttpProgress', ['$rootScope', '$interval', '$timeout', '$http', '$httpProgressOps', function($rootScope, $interval, $timeout, $http, $httpProgressOps){
+.module('thatisuday.ng-http-progress')
+.directive('ngHttpProgress', ['$rootScope', '$interval', '$timeout', '$http', '$httpProgressOps', function($rootScope, $interval, $timeout, $http, $httpProgressOps){
 	return {
 		restrict : 'E',
 		scope : {},

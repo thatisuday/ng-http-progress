@@ -1,9 +1,9 @@
 {
-  "name": "angular-http-progress",
+  "name": "ng-http-progress",
   "description": "$http interceptor spinner for angular.js",
   "main": [
-    "dist/angular-http-progress.css",
-    "dist/angular-http-progress.js"
+    "dist/ng-http-progress.css",
+    "dist/ng-http-progress.js"
   ],
   "authors": [
     "Uday Hiwarale <uhiwarale@gmail.com> (https://github.com/thatisuday)"
