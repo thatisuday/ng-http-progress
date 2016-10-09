@@ -1,7 +1,7 @@
 # Angular $http Progress Bar
 YouTube like top attached progress bar to show $http requests in progress (automatic)
 
-![bower](https://img.shields.io/bower/v/angular-http-progress.svg?style=flat-square) [![npm downloads](https://img.shields.io/npm/dt/angular-http-progress.svg?style=flat-square)](https://www.npmjs.com/package/angular-http-progress) [![preview](https://img.shields.io/badge/preview-click here-green.svg?style=flat-square)](https://rawgit.com/thatisuday/angular-http-progress/master/demo/main.html)
+![bower](https://img.shields.io/bower/v/ng-http-progress.svg?style=flat-square) [![npm downloads](https://img.shields.io/npm/dt/ng-http-progress.svg?style=flat-square)](https://www.npmjs.com/package/ng-http-progress) [![preview](https://img.shields.io/badge/preview-click here-green.svg?style=flat-square)](https://rawgit.com/thatisuday/angular-http-progress/master/demo/main.html)
 
 ***
 
