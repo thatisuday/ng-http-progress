@@ -16,12 +16,12 @@ In general, whenever your app send one or more `$http` requests, progress bar wi
 
 ## Install
 
-#### npm
+#### bower
 ```
 bower install ng-http-progress
 ```
 
-#### bower
+#### npm
 
 ```
 npm install ng-http-progress
