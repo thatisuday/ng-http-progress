@@ -14,13 +14,20 @@ angular
 					'</div>',
 		replace : true,
 		link : function(scope, elem, attr){
-			scope.http = $httpProgressOps.http;
-			scope.background = $httpProgressOps.background;
-			scope.startAt = $httpProgressOps.startAt;
-			scope.autoPauseAt = $httpProgressOps.autoPauseAt;
+			var
+				http 			= 	$httpProgressOps.http,
+				background 		= 	$httpProgressOps.background,
+				startAt 		=	 $httpProgressOps.startAt,
+				autoPauseAt 	= 	$httpProgressOps.autoPauseAt,
+				duration 		= 	$httpProgressOps.duration,
+				increment 		= 	$httpProgressOps.increment,
+
+				interval 		= 	null,
+				movedToStart 	= 	false
+			;
 
 			// startAt < autoPauseAt
-			if(scope.startAt >= scope.autoPauseAt){
+			if(startAt >= autoPauseAt){
 				throw new Error('Angular $http Progress : startAt value must be less than autoPauseAt value');
 			};
 
@@ -28,40 +35,39 @@ angular
 			
 			scope.visible = false;
 			scope.width = 0;
-			scope.interval = null;
-			scope.movedToStart = false;
+			scope.background = background;
 
 			/******************************************************************************/
 			
 			// start progress bar
 			$rootScope.$on('$httpProgressStart', function(){
-				if(!scope.visible) 		scope.visible = true;
-				if(scope.interval) 		$interval.cancel(scope.interval);
+				if(!scope.visible) 	scope.visible = true;
+				if(interval) 		$interval.cancel(interval);
 
 				$timeout(function(){
 					// move to start at position
-					if(scope.movedToStart == false){
-						scope.movedToStart = true;
-						scope.width = scope.startAt;
+					if(movedToStart == false){
+						movedToStart = true;
+						scope.width = startAt;
 					}
 
 					// start progress interval
-					scope.interval = $interval(function(){
+					interval = $interval(function(){
 						// auto pause (default 90)
-						if(scope.width >= scope.autoPauseAt){
+						if(scope.width >= autoPauseAt){
 							$rootScope.$emit('$httpProgressPause');
 						}
 						else{
-							// increment by 5% every second
-							scope.width = scope.width + 5;
+							// increment by increment (5%) every duration (1000ms)
+							scope.width = scope.width + increment;
 						}
-					}, 1000);
+					}, duration);
 				});
 			});
 
 			// pause progress bar
 			$rootScope.$on('$httpProgressPause', function(){
-				$interval.cancel(scope.interval);
+				$interval.cancel(interval);
 				elem.addClass('waiting');
 			});
 
@@ -75,12 +81,13 @@ angular
 			$rootScope.$on('$httpProgressRestart', function(){
 				elem.removeClass('done waiting');
 				scope.width = 0;
+				movedToStart = false;
 				$rootScope.$emit('$httpProgressStart');
 			});
 
 			// stop progress bar
 			$rootScope.$on('$httpProgressStop', function(){
-				$interval.cancel(scope.interval);
+				$interval.cancel(interval);
 
 				$timeout(function(){
 					scope.width = 100;
@@ -94,7 +101,7 @@ angular
 							elem.removeClass('done');
 							scope.width = 0;
 							scope.visible = false;
-							scope.movedToStart = false;
+							movedToStart = false;
 						}, 500);
 					}, 300);
 				});
@@ -106,7 +113,7 @@ angular
 			scope.$watch(function(){
 				return $http.pendingRequests.length > 0;
 			}, function(hasPending){
-				if(scope.http){
+				if(http){
 					if(hasPending){
 						$rootScope.$emit('$httpProgressStart');
 					}
@@ -128,7 +135,9 @@ angular
 		http 	: true,
 		background 	: '#b91f1f',
 		startAt : 0,
-		autoPauseAt : 90
+		autoPauseAt : 90,
+		duration : 1000,
+		increment : 5
 	};
 
 	return {

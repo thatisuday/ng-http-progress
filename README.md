@@ -50,12 +50,14 @@ angular
 
 > all above values are default values, you can avoid any options or entire `config` block if you want.
 
-| option | value | role |
-| ------ | ----- | ---- |
-| background | hex/rgba | background color of progress bar |
-| startAt | 0 - 100 | start progress bar with initial progress |
-| autoPauseAt | 0 - 100 | where progress bar will pause until requests resolve |
-| http | true/false | automatic show/hide progress bar for $http requests |
+| option | value | default | role |
+| ------ | ----- | ------- | ---- |
+| background | hex/rgba | '#b91f1f' | background color of progress bar |
+| startAt | 0 - 100 | 0 | start progress bar with initial progress |
+| autoPauseAt | 0 - 100 | 90 | where progress bar will pause until requests resolve |
+| http | true/false | true | automatic show/hide progress bar for $http requests |
+| duration | int (milliseconds) | 1000 | Increment progress every given duration |
+| increment | int | 5 | increment progress (%) by given increment value  every above duration |
 
 ***
 
