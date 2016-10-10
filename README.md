@@ -42,6 +42,7 @@ angular
 .config(function($httpProgressOpsProvider){
 	$httpProgressOpsProvider.setOps({
 		background: '#b91f1f',
+		startAt : 0,
 		autoPauseAt : 90,
 		http : true
 	});
@@ -56,6 +57,8 @@ angular
 | startAt | 0 - 100 | start progress bar with initial progress |
 | autoPauseAt | 0 - 100 | where progress bar will pause until requests resolve |
 | http | true/false | automatic show/hide progress bar for $http requests |
+
+> use `startAt : 30` for more realistic effect. Check preview.
 
 ***
 
