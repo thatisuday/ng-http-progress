@@ -53,6 +53,7 @@ angular
 | option | value | role |
 | ------ | ----- | ---- |
 | background | hex/rgba | background color of progress bar |
+| startAt | 0 - 100 | start progress bar with initial progress |
 | autoPauseAt | 0 - 100 | where progress bar will pause until requests resolve |
 | http | true/false | automatic show/hide progress bar for $http requests |
 

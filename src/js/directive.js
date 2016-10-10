@@ -13,13 +13,20 @@ angular
 		link : function(scope, elem, attr){
 			scope.http = $httpProgressOps.http;
 			scope.background = $httpProgressOps.background;
+			scope.startAt = $httpProgressOps.startAt;
 			scope.autoPauseAt = $httpProgressOps.autoPauseAt;
+
+			// startAt < autoPauseAt
+			if(scope.startAt >= scope.autoPauseAt){
+				throw new Error('Angular $http Progress : startAt value must be less than autoPauseAt value');
+			};
 
 			/******************************************************************************/
 			
 			scope.visible = false;
 			scope.width = 0;
 			scope.interval = null;
+			scope.movedToStart = false;
 
 			/******************************************************************************/
 			
@@ -28,17 +35,25 @@ angular
 				if(!scope.visible) 		scope.visible = true;
 				if(scope.interval) 		$interval.cancel(scope.interval);
 
-				// start progress interval
-				scope.interval = $interval(function(){
-					// auto pause (default 90)
-					if(scope.width >= scope.autoPauseAt){
-						$rootScope.$emit('$httpProgressPause');
+				$timeout(function(){
+					// move to start at position
+					if(scope.movedToStart == false){
+						scope.movedToStart = true;
+						scope.width = scope.startAt;
 					}
-					else{
-						// increment by 5% every second
-						scope.width = scope.width + 5;
-					}
-				}, 1000);
+
+					// start progress interval
+					scope.interval = $interval(function(){
+						// auto pause (default 90)
+						if(scope.width >= scope.autoPauseAt){
+							$rootScope.$emit('$httpProgressPause');
+						}
+						else{
+							// increment by 5% every second
+							scope.width = scope.width + 5;
+						}
+					}, 1000);
+				});
 			});
 
 			// pause progress bar
@@ -76,6 +91,7 @@ angular
 							elem.removeClass('done');
 							scope.width = 0;
 							scope.visible = false;
+							scope.movedToStart = false;
 						}, 500);
 					}, 300);
 				});

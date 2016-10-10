@@ -5,8 +5,8 @@ angular
 	var defOps = {
 		http 	: true,
 		background 	: '#b91f1f',
-		autoPauseAt : 90,
-		pendingReq 	: 0
+		startAt : 0,
+		autoPauseAt : 90
 	};
 
 	return {
